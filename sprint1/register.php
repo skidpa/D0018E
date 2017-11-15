@@ -16,8 +16,6 @@ if(isset($_POST['submit'])){
   $user_password = mysqli_real_escape_string($db_conn,$_POST['user_password']);
   $user_info = mysqli_real_escape_string($db_conn,$_POST['user_info']);
 
-  echo 'användare/lösen: '. $user_name . $user_password;
-
   if(empty($user_name) || empty($user_password)){
     header("Location: index.php?register=empty");
     exit();

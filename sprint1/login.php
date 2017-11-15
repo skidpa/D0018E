@@ -25,23 +25,22 @@ if(isset($_POST['submit'])){
 		$resultRow = mysqli_num_rows($result);
 
 		if($resultRow < 1){
-			/* error no user*/
+			/* error no username in Database*/
 			header("Location: index.php?login=error1");
 			exit();
 		} else {
 			if($row = mysqli_fetch_assoc($result)){
-				//echo $row['user_name'];
-				/* decrypt password */
+				/* hash password */
 				$hashedPassword = $row['user_password'];
 				$hashedCheck = password_verify($user_password, $hashedPassword);
 				if(!$hashedCheck == 1){
   				//if(!($user_password == $row['user_password'])){
-  					/* error wron password*/
+  					/* error wrong password*/
 				header("Location: index.php?login=error2");
 				exit();
 		} elseif($hashedCheck == 1){
   					//elseif($user_password == $row['user_password']) {
-  					/* logga in */
+  					/* login */
 				$_SESSION['user_id'] = $row['user_id'];
 				$_SESSION['user_name'] = $row['user_name'];
         $_SESSION['user_info'] = $row['user_info'];
