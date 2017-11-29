@@ -33,8 +33,14 @@ if(isset($_POST['submit'])){
   					/* login */
 				$_SESSION['user_id'] = $row['user_id'];
 				$_SESSION['user_name'] = $row['user_name'];
+        $_SESSION['user_address'] = $row['user_address'];
+        $_SESSION['user_email'] = $row['user_email'];
         //$_SESSION['user_info'] = $row['user_info'];
         $_SESSION['is_admin'] = $row['is_admin'];
+
+        /*if(!isset($_SESSION['user_basket'])){
+          $_SESSION['user_basket'] = array();
+        }*/
 				header("Location: ../index.php?login=success");
 
         //lägga till basket array session här med.

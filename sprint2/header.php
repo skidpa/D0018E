@@ -7,7 +7,7 @@
 <html>
 <head>
   <title></title>
-  <link rel="stylesheet" type="text/css" href="includes/style.css">
+  <?php //<link rel="stylesheet" type="text/css" href="includes/style.css">?>
 </head>
 <body>
   <header>
