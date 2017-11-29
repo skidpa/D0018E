@@ -3,7 +3,6 @@
 ?>
 registrera...
 
-user_id 	user_name 	user_password 	user_address 	user_email
 
 <div class="register-input">
   <form action="includes/register.php" method="POST">

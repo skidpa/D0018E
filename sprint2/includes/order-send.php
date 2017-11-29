@@ -30,7 +30,7 @@ if(isset($_POST['submit'])){
   echo '<br> dump <br>';
   echo var_dump($_SESSION['user_basket']);*/
   $orderdate = date('Y-m-d');
-  $sql = "INSERT INTO or_test (user_id, order_date)
+  $sql = "INSERT INTO orders (user_id, order_date)
   VALUES ('$_SESSION[user_id]', '$orderdate')";
   mysqli_query($db_conn, $sql);
   $order_id = mysqli_insert_id($db_conn);
@@ -41,7 +41,7 @@ if(isset($_POST['submit'])){
     $id = $_SESSION['user_id'];
     $price = $_SESSION['user_basket'][$i]['price'];
     $amount = $_SESSION['user_basket'][$i]['amount'];
-    $sql = "INSERT INTO or_test_details (product_id, order_id, product_price, order_amount)
+    $sql = "INSERT INTO orders_details (product_id, order_id, product_price, order_amount)
     VALUES ('$art', '$order_id', '$price', '$amount')";
     mysqli_query($db_conn, $sql);
   }

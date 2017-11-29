@@ -2,7 +2,7 @@
 session_start(); // dont forget!
 include 'db.php';
 $order_id = 11;
-$sql = "SELECT * FROM or_test_details WHERE order_id = '$order_id'";
+$sql = "SELECT * FROM orders_details WHERE order_id = '$order_id'";
 $result = mysqli_query($db_conn, $sql);
 //  or die("Query to retrieve cart failed");
 $orderSent = '';

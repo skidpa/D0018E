@@ -10,7 +10,7 @@ function adminOrders(){
   echo 'admin orders...';
   session_start(); // dont forget!
   include 'db.php';
-  $sql = "SELECT * FROM or_test WHERE order_sent='nej'";
+  $sql = "SELECT * FROM orders WHERE order_sent='nej'";
   $result = mysqli_query($db_conn, $sql);
     //or die("Query to retrieve cart failed");
 
@@ -57,7 +57,7 @@ function adminOrders(){
 function adminViewOrder($id){
   session_start(); // dont forget!
   include 'db.php';
-  $sql = "SELECT * FROM or_test WHERE order_id = '$id'";
+  $sql = "SELECT * FROM orders WHERE order_id = '$id'";
   $result = mysqli_query($db_conn, $sql);
   //  or die("Query to retrieve cart failed");
   $orderSent = '';
@@ -108,7 +108,7 @@ function adminOrdersShipped(){
   echo 'admin orders shipped';
   session_start(); // dont forget!
   include 'db.php';
-  $sql = "SELECT * FROM or_test WHERE order_sent='ja'";
+  $sql = "SELECT * FROM orders WHERE order_sent='ja'";
   $result = mysqli_query($db_conn, $sql);
     //or die("Query to retrieve cart failed");
 
@@ -172,13 +172,13 @@ function adminSendOrder($order_id){
   session_start(); // dont forget!
   echo $order_id;
   include 'db.php';
-  $sql = "SELECT order_sent FROM or_test WHERE order_id = '$order_id'";
+  $sql = "SELECT order_sent FROM orders WHERE order_id = '$order_id'";
   $result = mysqli_query($db_conn, $sql);
   //  or die("Query to retrieve cart failed");
   if (mysqli_num_rows($result) > 0) {
     echo 'iif';
     //die("Cart not found !");
-    $sql = "UPDATE or_test SET order_sent = 'ja'
+    $sql = "UPDATE orders SET order_sent = 'ja'
     WHERE order_id='$order_id'";
     mysqli_query($db_conn, $sql);
     /*while($row = mysqli_fetch_assoc($result)){

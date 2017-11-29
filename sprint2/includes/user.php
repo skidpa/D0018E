@@ -8,7 +8,7 @@ function userMenu(){
 function userOrders($id){
   session_start(); // dont forget!
   include 'db.php';
-  $sql = "SELECT * FROM or_test WHERE user_id = '$_SESSION[user_id]'";
+  $sql = "SELECT * FROM orders WHERE user_id = '$_SESSION[user_id]'";
   $result = mysqli_query($db_conn, $sql);
     //or die("Query to retrieve cart failed");
 
@@ -45,7 +45,7 @@ function userOrders($id){
 function viewOrder($order_id, $is_sent){
   session_start(); // dont forget!
   include 'db.php';
-  $sql = "SELECT * FROM or_test_details WHERE order_id = '$order_id'";
+  $sql = "SELECT * FROM orders_details WHERE order_id = '$order_id'";
   $result = mysqli_query($db_conn, $sql);
   //  or die("Query to retrieve cart failed");
   $orderSent = '';
@@ -100,7 +100,7 @@ function userOrdersShipped($id){
   echo 'user ' . $id . ' orders shipped';
   session_start(); // dont forget!
   include 'db.php';
-  $sql = "SELECT * FROM or_test WHERE user_id = '$_SESSION[user_id]'";
+  $sql = "SELECT * FROM orders WHERE user_id = '$_SESSION[user_id]'";
   $result = mysqli_query($db_conn, $sql);
     //or die("Query to retrieve cart failed");
 
