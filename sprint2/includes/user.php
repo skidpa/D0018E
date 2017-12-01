@@ -6,21 +6,11 @@ function userMenu(){
 }
 
 function userOrders($id){
-  session_start(); // dont forget!
+  session_start();
   include 'db.php';
   $sql = "SELECT * FROM orders WHERE user_id = '$_SESSION[user_id]'";
   $result = mysqli_query($db_conn, $sql);
-    //or die("Query to retrieve cart failed");
 
-  /*if (mysqli_num_rows($result) > 0) {
-    while($row = mysqli_fetch_assoc($result)){
-      //$orderSent = '';
-      //$orderSent = $row['order_sent'];
-      echo'
-      <a href="?viewOder&id=' . $row['order_id'] . '&sent=' . $row['order_sent'] . '">Order nummer: '.$row['order_id'].'</a>';
-    }
-
-  }*/
   if (mysqli_num_rows($result) > 0) {
     echo'<table>
     <tr>
@@ -34,85 +24,57 @@ function userOrders($id){
         <tr><td>
         <a href="?viewOder&id=' . $row['order_id'] . '">Order nummer: '.$row['order_id'].'</a>
         </td><td>'. $row['order_sent'] .'</td></tr>';
-
       }
     }
-    //echo '</tr></table>';
     echo '</table>';
   }
 }
 
 function viewOrder($order_id, $is_sent){
-  session_start(); // dont forget!
+  session_start();
   include 'db.php';
-  $sql = "SELECT * FROM orders_details WHERE order_id = '$order_id'";
-  $result = mysqli_query($db_conn, $sql);
-  //  or die("Query to retrieve cart failed");
-  $orderSent = '';
-  if(!isset($_SESSION['view_order'])){
-    $_SESSION['view_order'] = array();
-  }
-  if (mysqli_num_rows($result) > 0) {
-    echo 'if';
-    //die("Cart not found !");
-    while($row = mysqli_fetch_assoc($result)){
-      echo 'while';
-      $orderArray = array('art_nummer' => $row['product_id'], 'amount' => $row['order_amount'], 'price' => $row['product_price']);
-      var_dump($_SESSION['view_order']);
-      //echo $_SESSION['view_order'][$row['product_id']]['art_nummer'];
-      //$orderSent = $row['order_sent'];
-      //$tmp = $row['user_basket'];
-    }
 
-  }
-  echo '<table>
-    <tr>
-      <th>Artikel nummer</th>
-      <th>Namn</th>
-      <th>Pris/st</th>
-      <th>Antal</th>
-      <th>Skickad</th>
-    </tr>';
-  if(sizeof($_SESSION['view_order']) > 0){
-    include 'db.php';
-    foreach ($_SESSION['view_order'] as $key => $keyvalue) {
-      $sql = "SELECT * FROM product WHERE product_id='$key'";
-      $result = mysqli_query($db_conn, $sql);
-      if (mysqli_num_rows($result) > 0) {
-        while($row = mysqli_fetch_assoc($result)){
-          echo '<tr><td>'
-          . $_SESSION['view_order'][$key]['art_nummer'] . '</td><td>'
-          . $row['product_name'] . '</td><td>'
-          . $_SESSION['view_order'][$key]['price'] . '</td><td>'
-          . $_SESSION['view_order'][$key]['amount'] . '</td><td>'
-          . $is_sent . '</td><tr>';
-          //. $_SESSION['user_basket'][$i]['price'] . '</td><td>'*/
-        }
-      } else {
-        echo 'databas fel :-(';
-      }
+  $sql = "SELECT orders_details.*, product.* FROM orders_details
+  LEFT JOIN product ON orders_details.product_id=product.product_id WHERE order_id = '$order_id'";
+  $result = mysqli_query($db_conn, $sql);
+
+  if (mysqli_num_rows($result) > 0) {
+
+    $order_total ='';
+    echo '<table>
+      <tr>
+        <th>Artikel nummer</th>
+        <th>Namn</th>
+        <th>Info</th>
+        <th>Pris/st</th>
+        <th>Antal</th>
+      </tr>';
+    while($row = mysqli_fetch_assoc($result)){
+
+      echo '<tr><td>'
+      . $row['product_id'] . '</td><td>'
+      . $row['product_name'] . '</td><td>'
+      . $row['product_info'] . '</td><td>'
+      . $row['product_price'] . '</td><td>'
+      . $row['order_amount'] . '</td></tr>';
+
+      $order_count = ((int)$row['product_price']*(int)$row['order_amount']);
+      $order_total += $order_count;
+
     }
+    echo '<tr><td>'
+    .'Totalt pris: '. $order_total . '</td></tr>';
+    echo '</table>';
   }
-  echo '</table>';
 }
 
 function userOrdersShipped($id){
   echo 'user ' . $id . ' orders shipped';
-  session_start(); // dont forget!
+  session_start();
   include 'db.php';
   $sql = "SELECT * FROM orders WHERE user_id = '$_SESSION[user_id]'";
   $result = mysqli_query($db_conn, $sql);
-    //or die("Query to retrieve cart failed");
 
-  /*if (mysqli_num_rows($result) > 0) {
-    while($row = mysqli_fetch_assoc($result)){
-      //$orderSent = '';
-      //$orderSent = $row['order_sent'];
-      echo'
-      <a href="?viewOder&id=' . $row['order_id'] . '&sent=' . $row['order_sent'] . '">Order nummer: '.$row['order_id'].'</a>';
-    }
-
-  }*/
   if (mysqli_num_rows($result) > 0) {
     echo'<table>
     <tr>
@@ -120,7 +82,6 @@ function userOrdersShipped($id){
       <th>Skickad</th>
     </tr>';
     while($row = mysqli_fetch_assoc($result)){
-      //echo 'order nummer: '. $row['order_id'];
       if($row['order_sent'] == 'ja'){
         echo'
         <tr><td>
@@ -129,12 +90,11 @@ function userOrdersShipped($id){
 
       }
     }
-    //echo '</tr></table>';
     echo '</table>';
   }
 }
 
-function userSettings($id){ // ska ta user id
+function userSettings($id){
   echo 'user ' . $id . ' settings...';
 
   echo '<div class="register-input">

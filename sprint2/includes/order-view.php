@@ -12,6 +12,8 @@ if(!isset($_SESSION['view_order'])){
 if (mysqli_num_rows($result) > 0) {
   //die("Cart not found !");
   while($row = mysqli_fetch_assoc($result)){
+    print_r($row);
+    echo'art: '.$row['product_id'].' pris '.$row['product_price'].' antal '.$row['order_amount'];
 
     $orderArray[$row['product_id']] = array('art_nummer' => $row['product_id'], 'amount' => $row['order_amount'], 'price' => $row['product_price']);
     //$_SESSION['view_order'][$order_id]= array('art_nummer' => $row['product_id'], 'amount' => $row['order_amount'], 'price' => $row['product_price']);

@@ -27,6 +27,9 @@ if(isset($_SESSION['user_id'])){
     }
     elseif (isset($_GET['addProduct'])) {
       addProduct();
+    }
+    elseif (isset($_GET['editProduct'])) {
+      editProduct();
     } else {
       echo 'Välj alternativ ovan';
     }
@@ -39,7 +42,6 @@ if(isset($_SESSION['user_id'])){
     }
     elseif (isset($_GET['userOrders'])) {
       userOrders($_SESSION['user_id']);
-      //include_once 'includes/order-view.php';
     }
     elseif(isset($_GET['viewOder'])){
       viewOrder($_GET['id'], $_GET['sent']);

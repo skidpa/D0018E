@@ -31,7 +31,6 @@ if(sizeof($_SESSION['user_basket']) > 0){
         <input type="submit" name="submit" value="Uppdatera">
         </form></td><td>'
         . '<a href="includes/basket-remove.php?art='. $_SESSION['user_basket'][$key]['art_nummer'] . '">Ta bort</a></td><tr>';
-        //. $_SESSION['user_basket'][$i]['price'] . '</td><td>'
       }
     } else {
       echo 'databas fel :-(';

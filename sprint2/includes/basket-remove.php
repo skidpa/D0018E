@@ -14,7 +14,6 @@ function basketClear(){
   }
   echo '<br><br>dump efter<br>';
   var_dump($_SESSION['user_basket']);
-  //$_SESSION['user_basket']=array_values($_SESSION['user_basket']);
 }
 
 
@@ -38,7 +37,6 @@ function basketRemove($art){
   }
   echo '<br><br>dump efter<br>';
   var_dump($_SESSION['user_basket']);
-  //$_SESSION['user_basket']=array_values($_SESSION['user_basket']);
 }
 
 if($_GET['basket'] == 'clear'){
@@ -48,7 +46,6 @@ if($_GET['basket'] == 'clear'){
 }
 elseif($_GET['art']){
   echo '<br> remove_product art '. $_GET['art'] . '<br>';
-  //basketRemove($_GET['art']);
   basketRemove($_GET['art']);
   echo '<br><br> klar';
   header("Location: ../shoppingbasket.php?artremove=ok");

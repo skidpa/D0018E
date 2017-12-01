@@ -2,8 +2,7 @@
 if(isset($_POST['submit'])){
   session_start();
   include 'db.php';
-
-
+  
   $sql = "SELECT * FROM basket WHERE user_id = '$_SESSION[user_id]'";
   $result = mysqli_query($db_conn, $sql);
   $resultRow = mysqli_num_rows($result);
@@ -20,13 +19,6 @@ if(isset($_POST['submit'])){
     header("Location: ../shoppingbasket.php?basketsave=ok");
   }
 
-/*
-  echo '<br> provar spara <br>';
-  //header("Location: ../shoppingbasket.php?basketsave=ok");
-  echo '<br> serial <br>';
-  echo '<br>' . $saveBasket . '<br>';
-  echo '<br> dump <br>';
-  echo var_dump($_SESSION['user_basket']);*/
 }
 
 ?>

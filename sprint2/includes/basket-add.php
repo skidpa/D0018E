@@ -14,8 +14,4 @@ if(array_key_exists($_GET['art'], $_SESSION['user_basket'])){
   $_SESSION['user_basket'][$_GET['art']] = array('art_nummer' => $_GET['art'], 'amount' => 1, 'price' => $_GET['price']);
   header("Location: ../products.php?fannsinte");
 }
-//$_SESSION['user_basket'][$_GET['art']] = array('art_nummer'=>$_GET['art'], 'amount' =>1, 'price' => $_GET['price']);
-
-//header("Location: ../products.php?prodctadded=ok")
-
 ?>
