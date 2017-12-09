@@ -1,0 +1,85 @@
+. '<a href="includes/basket-remove.php?art='. $_SESSION['user_basket'][$i]['art_nummer'] . '">Ta bort</a></td><tr>';
+
+
+
+<?php/*
+if(sizeof($_SESSION['user_basket']) > 0){
+  for($i = 1; $i <= sizeof($_SESSION['user_basket']); $i++){
+    include 'includes/db.php';
+    $sql = "SELECT * FROM product WHERE product_id='$i'";
+    $result = mysqli_query($db_conn, $sql);
+
+    if (mysqli_num_rows($result) > 0) {
+      while($row = mysqli_fetch_assoc($result)){
+        echo '<tr><td>'
+        . $_SESSION['user_basket'][$i]['art_nummer'] . '</td><td>'
+        . $row['product_name'] . '</td><td>'
+        . $row['product_stock'] .  '</td><td>'
+        . $_SESSION['user_basket'][$i]['price'] . '</td><td>'
+        . '<form action="includes/basket-update.php" method="POST">
+        <input type="number" placeholder="antal" name="amount" value="' . $_SESSION['user_basket'][$i]['amount'] . '">
+        <input type="hidden" name="art_nummer" value="'. $_SESSION['user_basket'][$i]['art_nummer'] .'">
+        <input type="submit" name="submit" value="Uppdatera">
+        </form></td><td>'
+        . '<a href="includes/basket-remove.php?art='. $_SESSION['user_basket'][$i]['art_nummer'] . '">Ta bort</a></td><tr>';
+        //. $_SESSION['user_basket'][$i]['price'] . '</td><td>'
+      }
+    } else {
+      echo 'databas fel :-(';
+    }
+  }//'<a href="art='. $_SESSION['user_basket'][$i]['art_nummer'] . '">Ta bort</a></td><tr>';
+}*/
+?>
+
+
+
+
+$sql = "SELECT order_details FROM order_test WHERE user_id = '$_SESSION[user_id]'";
+$result = mysqli_query($db_conn, $sql);
+//  or die("Query to retrieve cart failed");
+if(!isset($_SESSION['view_order'])){
+  $_SESSION['view_order'] = array();
+}
+if (mysqli_num_rows($result) > 0) {
+  //die("Cart not found !");
+  while($row = mysqli_fetch_assoc($result)){
+    $_SESSION['view_order'] = unserialize($row['order_details']);
+    //$tmp = $row['user_basket'];
+  }
+
+}
+
+
+oder-view
+
+<table>
+  <tr>
+    <th>Artikel nummer</th>
+    <th>Namn</th>
+    <th>Pris/st</th>
+    <th>Antal</th>
+  </tr>
+<?php
+var_dump($_SESSION['view_order']);
+if(sizeof($_SESSION['view_order']) > 0){
+  include 'db.php';
+  foreach ($_SESSION['view_order'] as $key => $keyvalue) {
+    $sql = "SELECT * FROM product WHERE product_id='$key'";
+    $result = mysqli_query($db_conn, $sql);
+    if (mysqli_num_rows($result) > 0) {
+      while($row = mysqli_fetch_assoc($result)){
+        echo '<tr><td>'
+        . $_SESSION['view_order'][$key]['art_nummer'] . '</td><td>'
+        . $row['product_name'] . '</td><td>'
+        . $_SESSION['view_order'][$key]['price'] . '</td><td>'
+        . $_SESSION['view_order'][$key]['amount'] . '</td><td>'
+        . /*$row['order_sent'] . */'</td><tr>';
+        //. $_SESSION['user_basket'][$i]['price'] . '</td><td>'*/
+      }
+    } else {
+      echo 'databas fel :-(';
+    }
+  }
+}
+?>
+</table>
