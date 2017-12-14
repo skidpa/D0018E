@@ -7,8 +7,9 @@ if(isset($_POST['submit'])){
   $user_address = mysqli_real_escape_string($db_conn,$_POST['user_address']);
   $user_email = mysqli_real_escape_string($db_conn,$_POST['user_email']);
 
-  if(empty($user_name) || empty($user_password)){
-    header("Location: ../index.php?register=empty" . $user_name);
+  if(empty($user_name) || empty($user_password) ||
+  empty($user_address) || empty($user_email)){
+    header("Location: ../index.php?empty");
     exit();
   } else{
     $sql = "SELECT * FROM user WHERE user_name='$user_name'";
@@ -16,7 +17,7 @@ if(isset($_POST['submit'])){
     $resultRow = mysqli_num_rows($result);
 
     if($resultRow > 0){
-      header("Location: ../index.php?register=usertaken");
+      header("Location: ../index.php?usertaken");
       exit();
     } else {
       $hashed_password = password_hash($user_password, PASSWORD_DEFAULT);

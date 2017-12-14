@@ -7,15 +7,16 @@
 <html>
 <head>
   <title></title>
-  <?php //<link rel="stylesheet" type="text/css" href="includes/style.css">?>
+  <link rel="stylesheet" type="text/css" href="includes/style.css">
 </head>
 <body>
   <header>
-    <nav>
+    <div class="main-wrapper">
+      <div class="navg">
       <ul>
         <li><a href="index.php">Start</a></li>
         <li><a href="products.php">Produkter</a></li>
         <?php include getMenu(); ?>
       </ul>
-    </nav>
+    </div>
   </header>

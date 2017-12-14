@@ -1,0 +1,386 @@
+/*P-A css*/
+
+body {
+    background-color: #ccc;
+    background-image: url("img/pexels-photo-338936_1920.jpeg");
+    /*background-image: url("img/pexels-photo-340932_1920.jpeg");*/
+    background-repeat: no-repeat;
+    /*background-image: url("img/bg_202.png");
+    */
+
+}
+header{
+    /*background-image: url("img/top_202.png");
+    background-repeat: no-repeat;*/
+}
+
+.main-wrapper {
+    margin: 0 auto;
+    width: 1000px;/*1000px;*/
+    /*background-color: #4CAF50;*/
+}
+
+a {
+    text-decoration: none;
+}
+
+.login-as{
+    font-family: arial;
+    font-size: 14px;
+    float: left;
+    color: white;
+    /*padding-left: 0px;
+    padding-top: 23px;*/
+    margin-left: 40px;
+    margin-top: 11px;
+}
+.navg {
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: #81745f;
+    width: 100%;
+}
+.navg ul{
+    list-style-type: line;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.navg li{
+    float: left;
+    display: inline;
+}
+.navg li a{
+    display: block;
+    font-family: arial;
+    font-size: 14px;
+    color: white;
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+}
+.navg li a:hover {
+    background-color: #4CAF50;
+    border-radius: 5px;
+}
+
+/*header .menu-current a {
+    background-color: #4CAF50;
+    border-radius: 5px;
+}*/
+
+.menu-input{
+}
+
+.main-content {
+    margin: 0 auto;
+    width: 1000px;/*1000px;*/
+    background-color: #81745f;
+    border-radius: 5px;
+    padding-bottom: 16px;
+}
+.main-textarea {
+    font-family: arial;
+    font-size: 14px;
+    color: white;
+    margin: auto 20px;
+    background-color: #81745f;
+}
+
+.main-textarea ul{
+    list-style-type: line;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.main-textarea li{
+    float: left;
+    display: inline;
+}
+.main-textarea li a{
+    display: block;
+    font-family: arial;
+    font-size: 14px;
+    color: white;
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+}
+.main-textarea li a:hover {
+    background-color: #4CAF50;
+    border-radius: 5px;
+}
+
+.main-textarea h2{
+    color: white;
+}
+
+.main-textarea button {
+    float: right;
+    background-color: #4CAF50;
+    border-radius: 5px;
+    color: white;
+    font-family: arial;
+    font-size: 14px;
+    padding: 5px 18px;
+    margin-right: 5px;
+    margin-top: 5px;
+    border: none;
+
+    width: auto;
+}
+
+.comment{
+  background-color: #81745f;
+  border-radius: 5px;
+  padding-bottom: 16px;
+}
+.comment-head{
+  margin-top: 10px;
+  margin-left: 20px;
+  font-weight: bold;
+}
+.comment-content{
+  margin-left: 20px;
+}
+.comment-foot{
+  margin-left: 20px;
+  font-style: italic;
+}
+.admin-reply-head{
+  margin-top: 10px;
+  margin-left: 40px;
+  font-weight: bold;
+}
+.admin-reply-content{
+  margin-left: 40px;
+}
+.admin-reply-foot{
+  margin-left: 40px;
+  text-decoration: none:;
+  font-style: italic;
+}
+/* 42.20*/
+.img-box {
+    font-family: arial;
+    font-size: 14px;
+    color: white;
+    margin: auto 20px;
+}
+
+.img-box img{
+  width: 60%;
+  border-radius: 25px;
+}
+
+
+
+
+
+
+
+
+
+/*
+header .nav-login {
+    float: right;
+}
+header .nav-login form {
+    float: left;
+    padding-top: 15px;
+}
+header .nav-login form input {
+    float: left;
+    width: 140px;
+    height: 30px;
+    padding: 0px 10px;
+    margin-right: 10px;
+    border: none;
+    background-color: #cccccc;
+    font-family: arial;
+    font-size: 14px;
+    color: #111111;
+    line-height: 30px;
+}
+header .nav-login form button {
+    float: left;
+    width: 90px;
+    height: 30px;
+    margin-right: 10px;
+    border: none;
+    background-color: #f3f3f3;
+    font-family: arial;
+    font-size: 14px;
+    color: #111111;
+    cursor: pointer;
+}
+
+header .nav-login form button:hover {
+    background-color: #cccccc;
+
+}
+
+header .nav-login a{
+    display: block;
+    width: 60px;
+    height: 60px;
+    border: none;
+    float: left;
+    background-color: #FFFFFF;
+    font-family: arial;
+    font-size: 16px;
+    color: #111111;
+    line-height: 63px;
+    cursor: pointer;
+}*/
+
+.main-container {
+    padding-top: 40px;
+}
+.main-container h2 {
+    font-family: arial;
+    font-size: 40px;
+    color: white;
+    line-height: 50px;
+    text-align: center;
+}
+
+
+/*signup.php*/
+.signup-form {
+    width: 400px;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+.signup-form input{
+    width: 90%;
+    height: 40px;
+    padding: 0px 5%;
+    margin-bottom: 4px;
+    border: none;
+    background-color: #FFFFFF;
+    font-family: arial;
+    font-size: 16px;
+    color: #111111;
+    line-height: 40px;
+}
+
+.signup-form button {
+    display: block;
+    margin: 0 auto;
+    width: 30%;
+    height: 40px;
+    border: none;
+    background-color: #222222;
+    font-family: arial;
+    font-size: 16px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.signup-form button:hover {
+    background-color: #111111;
+}
+
+/*
+w3schools css
+*/
+/* Full-width input fields *//*
+header input[type=text], input[type=password] {
+    width: 10%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}*/
+
+/* style för meny logga in registrera knapp*/
+.menu-button button {
+    float: right;
+    background-color: #4CAF50;
+    border-radius: 5px;
+    color: white;
+    font-family: arial;
+    font-size: 14px;
+    padding: 5px 18px;
+    /*margin: 18px 5px;*/
+    margin-right: 5px;
+    margin-top: 5px;
+    border: none;
+    cursor: pointer;
+    width: auto;
+}
+
+header button:hover {
+    opacity: 0.8;
+}
+
+/* the login form */
+header .login-buttons {
+    height: 36px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    border-top: none;
+}
+
+header .login-buttons button {
+    /*float: left;
+    /*background-color: #4CAF50;*/
+    color: white;
+    /*padding: 14px 20px;*/
+
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+header .register-buttons {
+    height: 36px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    border-top: none;
+}
+
+ /*the register form*/
+header .register-buttons button {
+    /*float: left;
+    /*background-color: #4CAF50;*/
+    color: white;
+    /*padding: 14px 20px;*/
+
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+/* input i form *
+header .input-container {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top:14px;
+}
+
+/*temp table*/
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 25%;
+    border-radius: 5px; /* funkar inte :'('*/
+    -moz-border-radius: 5px;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #81745f;
+}

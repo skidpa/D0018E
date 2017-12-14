@@ -15,6 +15,7 @@ function userOrders($id){
     echo'<table>
     <tr>
       <th>Order nummer</th>
+      <th>Order datum</th>
       <th>Skickad</th>
     </tr>';
     while($row = mysqli_fetch_assoc($result)){
@@ -23,10 +24,14 @@ function userOrders($id){
         echo'
         <tr><td>
         <a href="?viewOder&id=' . $row['order_id'] . '">Order nummer: '.$row['order_id'].'</a>
-        </td><td>'. $row['order_sent'] .'</td></tr>';
+        </td><td>'
+        . $row['order_date'] . '</td><td>'
+        . $row['order_sent'] .'</td></tr>';
       }
     }
     echo '</table>';
+  } else {
+    echo 'Det finns inga ej hanterade ordrar';
   }
 }
 
@@ -54,11 +59,11 @@ function viewOrder($order_id, $is_sent){
       echo '<tr><td>'
       . $row['product_id'] . '</td><td>'
       . $row['product_name'] . '</td><td>'
-      . $row['product_info'] . '</td><td>'
-      . $row['product_price'] . '</td><td>'
+      . $row['product_desc'] . '</td><td>'
+      . $row['details_product_price'] . '</td><td>'
       . $row['order_amount'] . '</td></tr>';
 
-      $order_count = ((int)$row['product_price']*(int)$row['order_amount']);
+      $order_count = ((int)$row['details_product_price']*(int)$row['order_amount']);
       $order_total += $order_count;
 
     }
@@ -79,18 +84,25 @@ function userOrdersShipped($id){
     echo'<table>
     <tr>
       <th>Order nummer</th>
+      <th>Order Datum</th>
       <th>Skickad</th>
+      <th>Skickad Datum</th>
     </tr>';
     while($row = mysqli_fetch_assoc($result)){
       if($row['order_sent'] == 'ja'){
         echo'
         <tr><td>
         <a href="?viewOder&id=' . $row['order_id'] . '">Order nummer: '.$row['order_id'].'</a>
-        </td><td>'. $row['order_sent'] .'</td></tr>';
+        </td><td>'
+        . $row['order_date'] . '</td><td>'
+        . $row['order_sent'] .'</td><td>'
+        . $row['order_date_sent'] . '</td></tr>';
 
       }
     }
     echo '</table>';
+  } else {
+    echo 'Det finns inga skickade ordrar';
   }
 }
 

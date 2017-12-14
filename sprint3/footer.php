@@ -1,5 +1,6 @@
 <footer>
-  footer copyright none :P
+  <br>footer copyright none :P
 </footer>
+</div>
 </body>
 </html>

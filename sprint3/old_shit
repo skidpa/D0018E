@@ -83,3 +83,140 @@ if(sizeof($_SESSION['view_order']) > 0){
 }
 ?>
 </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------s3
+
+
+
+
+
+
+
+
+
+/*echo '<table>
+  <tr>
+    <th>Artikel nummer</th>
+    <th>Namn</th>
+    <th>info</th>
+    <th>Lager saldo</th>
+    <th>Pris</th>
+    <th>Visas</th>
+  </tr>';
+      include 'includes/db.php';
+      $sql = "SELECT * FROM product";
+      $result = mysqli_query($db_conn, $sql);
+
+      if (mysqli_num_rows($result) > 0) {
+          while($row = mysqli_fetch_assoc($result)) {
+              echo '<tr><td>'
+              . $row['product_id'] . '</td><td>'
+              /*. $row['product_name'] . '</td><td>'*/
+              /*. '<a href="product-view.php?art=' . $row['product_id'] . '">' . $row['product_name'] . '</a></td><td>'
+              . $row['product_desc'] . '</td><td>'
+              . $row['product_stock'] . '</td><td>'
+              . $row['product_price'] . ' kr</td><td>'
+              . $row['product_live'] . ' kr</td><td>';
+              /*. if($row['product_active'] = 1){
+                'Ja</td></tr>';
+              } else {
+                'Nej</td></tr>';
+              }*/
+          /*}
+      } else {
+          echo '0 results';
+      }
+
+      mysqli_close($conn);
+
+echo '</table>';*/
+
+
+
+
+
+
+function getUserLikes($art){
+  /*
+  kollar bara om mitt id finns i databasen för art nummret
+  */
+  session_start();
+  include 'db.php';
+  $sql = "SELECT * FROM likes WHERE product_id='$art'";
+  $result = mysqli_query($db_conn, $sql);
+  //echo 'userlike: ' . mysqli_num_rows($result);
+  if(mysqli_num_rows($result) > 0){
+
+    while($row = mysqli_fetch_assoc($result)){
+      echo '<br>i while session' . $_SESSION['user_id'] . ' user_id: ' . $row['user_id'] . '<br>';
+      if($row['user_id'] == $_SESSION['user_id'] &&
+          $row['product_id'] == $art && $row['is_liked'] == 'ja'){
+        //echo 'user_id: ' . $row['user_id'] . 'produkt_id: ' . $row['product_id'] . 'likes: ' . $row['is_liked'];
+        echo 'Du har gillat denna vara!';
+        break;
+      }
+      else if($row['user_id'] != $_SESSION['user_id']){
+        //echo 'user_id: ' . $row['user_id'] . 'produkt_id: ' . $row['product_id'] . 'likes: ' . $row['is_liked'];
+        //echo 'Du gillar inte denna vara!';
+        echo 'while eslse<a href="?like&art='. $art . '">  Gilla!</a>';
+        //break; // för att inte få mer än en gilla knapp
+      }
+    }
+  } else {
+    // om inga likes för produkten finns
+    echo 'else efter whiule<a href="?like&art='. $art . '">  Gilla!</a>';
+  }
+}
+
+
+
+
+
+
+
+
+
+
+//echo 'userlike: ' . mysqli_num_rows($result);
+//$rows = mysqli_fetch_array($result);
+//$rows2 = mysqli_fetch_assoc($result);
+/*if(mysqli_num_rows($result) >= 0){
+  while ($rows = mysqli_fetch_assoc($result)) {
+    foreach($rows as $key => $value){
+      echo "Key:  $key; Value: $value<br><br>";
+      //echo 'key ' . $key .' value: '. $value . '<br>';
+      //echo 'key[user_id] ' . $value['user_id']. '<br>';
+      //if($key['user_id'])
+      /*if($key == 'user_id' && $value == $_SESSION['user_id']){
+        echo 'Du har gillat denna vara!<br>';
+      } else {
+        echo '<br> elsesats <br>';
+      }*/
+      //}
+  /*}/*
+  foreach($rows as $key => $value){
+    echo "Key:  $key; Value: $value<br>";
+    //echo 'key ' . $key .' value: '. $value . '<br>';
+    //echo 'key[user_id] ' . $value['user_id']. '<br>';
+    //if($key['user_id'])
+    if($key == 'user_id' && $value == $_SESSION['user_id']){
+      echo 'Du har gillat denna vara!<br>';
+    } else {
+      echo '<br> elsesats <br>';
+    }
+  }*/
+//}

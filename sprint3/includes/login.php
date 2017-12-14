@@ -7,7 +7,7 @@ if(isset($_POST['submit'])){
 
 
   if(empty($user_name) || empty($user_password)){
-		header("Location: ../index.php?login=empty");
+		header("Location: ../index.php?empty");
 		exit();
 	} else {
 		$sql = "SELECT * FROM user WHERE user_name='$user_name'";
@@ -16,7 +16,7 @@ if(isset($_POST['submit'])){
 
 		if($resultRow < 1){
 			/* error no username in Database*/
-			header("Location: ../index.php?login=error1");
+			header("Location: ../index.php?error1");
 			exit();
 		} else {
 			if($row = mysqli_fetch_assoc($result)){
@@ -25,7 +25,7 @@ if(isset($_POST['submit'])){
 				$hashedCheck = password_verify($user_password, $hashedPassword);
 				if(!$hashedCheck == 1){
   					/* error wrong password*/
-				header("Location: ../index.php?login=error2");
+				header("Location: ../index.php?error1");
 				exit();
 		} elseif($hashedCheck == 1){
   					/* login */
