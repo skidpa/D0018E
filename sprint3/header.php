@@ -7,7 +7,7 @@
 <html>
 <head>
   <title></title>
-  <link rel="stylesheet" type="text/css" href="includes/style.css">
+  <link rel="stylesheet" type="text/css" href="includes/style2.css">
 </head>
 <body>
   <header>
@@ -16,7 +16,8 @@
       <ul>
         <li><a href="index.php">Start</a></li>
         <li><a href="products.php">Produkter</a></li>
-        <?php include getMenu(); ?>
+        <?php getMenu(); ?>
       </ul>
     </div>
+  </div>
   </header>

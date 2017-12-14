@@ -10,14 +10,14 @@ function getMenu(){
     <button type="submit" name="submit">Logga ut</button>
     </form></div>';
   } else {
-    echo '<div class="menu-button"><form class="menu-input"action="includes/login.php" method="POST">
+    echo '<li><form class="menu-button" action="includes/login.php" method="POST">
     <input type="text" placeholder="Användarnamn" name="user_name">
     <input type="password" placeholder="Lösenord" name="user_password">
     <button type="submit" name="submit">Logga in</button>
-    </form>
-    <form action="register-view.php" method="POST">
+    </form></li>
+    <li><form class="register-button" action="register-view.php" method="POST">
     <button type="submit" name="submit">Registrera</button>
     </form>
-    </div>';
+    </li>';
   }
 }

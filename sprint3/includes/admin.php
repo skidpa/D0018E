@@ -10,11 +10,11 @@ if(isset($_POST['send-order'])) {
 }
 
 function adminMenu(){
-  echo '<ul><li><a href="?adminSettings">Inställningar</a></li>
+  echo '<div class="admin"><ul><li><a href="?adminSettings">Inställningar</a></li>
   <li><a href="?adminOrders">Ordrar</a></li>
   <li><a href="?adminOrdersShipped">Skickade Ordrar</a></li>
   <li><a href="?addProduct">Lägg till produkt</a></li>
-  <li><a href="?listProduct">Lista produkter</a></li></ul>';
+  <li><a href="?listProduct">Lista produkter</a></li></ul></div>';
 }
 
 function adminOrders(){
@@ -170,7 +170,7 @@ function listProduct(){
 
 function editProduct($art){
   echo 'redigera product';
-  echo $art;
+  //echo $art;
   include 'db.php';
   $sql = "SELECT * FROM product WHERE product_id = '$art'";
   $result = mysqli_query($db_conn, $sql);

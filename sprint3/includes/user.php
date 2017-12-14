@@ -1,8 +1,8 @@
 <?php
 function userMenu(){
-  echo '<ul><li><a href="?userSettings">Inställningar</a></li>
+  echo '<div class="user"><ul><li><a href="?userSettings">Inställningar</a></li>
   <li><a href="?userOrders">Ordrar</a></li>
-  <li><a href="?userOrdersShipped">Skickade Ordrar</a></li></ul>';
+  <li><a href="?userOrdersShipped">Skickade Ordrar</a></li></ul></div>';
 }
 
 function userOrders($id){
@@ -74,7 +74,7 @@ function viewOrder($order_id, $is_sent){
 }
 
 function userOrdersShipped($id){
-  echo 'user ' . $id . ' orders shipped';
+  //echo 'user ' . $id . ' orders shipped';
   session_start();
   include 'db.php';
   $sql = "SELECT * FROM orders WHERE user_id = '$_SESSION[user_id]'";
@@ -107,7 +107,7 @@ function userOrdersShipped($id){
 }
 
 function userSettings($id){
-  echo 'user ' . $id . ' settings...';
+  //echo 'user ' . $id . ' settings...';
 
   echo '<div class="register-input">
     <form action="includes/user-update.php" method="POST">

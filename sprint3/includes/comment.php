@@ -35,11 +35,12 @@ function listComments($art){
             adminComment($row['comment_id'], $art);
             echo '</div>';
           }
-          echo '</div>';
+          echo '</div></div>';
           if($row['comment_reply'] == 'ja'){
-            echo '<div class="admin-reply-head">'. $row['comment_reply_from'] .'</div>
+            echo '<div class="admin-comment"><div class="admin-reply-head">'. $row['comment_reply_from'] .'</div>
             <div class="admin-reply-content">'. $row['comment_reply_text'].'</div>
-            <div class="admin-reply-foot">'.$row['comment_reply_date'] .'</div><br>';
+            <div class="admin-reply-foot">'.$row['comment_reply_date'] .'</div>';
+            echo '</div>';
           } else {
             //echo '</div><br>';
           }

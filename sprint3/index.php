@@ -3,7 +3,7 @@
 ?>
 <section class="main-container">
   <div class="main-content">
-    <div clas="main-textarea">
+    <div class="error-notification">
       <center>
         <?php
         if(isset($_GET['error1'])) {
@@ -18,6 +18,8 @@
         ?>
       </center>
     </div>
+  </div>
+  <div class="main-content">
     <div class="main-textarea">
       <center>
         admin/admin<br>

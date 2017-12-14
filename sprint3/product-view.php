@@ -3,6 +3,27 @@
   include 'includes/like.php';
   include 'includes/comment.php';
 ?>
+<section class="main-container">
+  <div class="main-content">
+  <div class="error-notification">
+    <center>
+      <?php
+      if(isset($_GET['error1'])) {
+        echo '<h3> fel andvändarnamn eller lösenord</h3>';
+      }
+      if(isset($_GET['empty'])) {
+        echo '<h3>Alla fält är inte ifyllda</h3>';
+      }
+      if(isset($_GET['usertaken'])) {
+        echo '<h3>användarnamnet upptaget</h3>';
+      }
+      ?>
+    </center>
+  </div>
+  </div>
+  <div class="main-content">
+    <div class="main-textarea">
+      <center>
     <?php
       include 'includes/db.php';
       $sql = "SELECT * FROM product WHERE product_id = '$_GET[art]'";
@@ -77,6 +98,7 @@
   <br><b>Produkt information</b><br>
   <?php echo $product_info ?>
 </div>
+
 <div>
   <?php
     echo '<h3>Kommentarer</h2>';
@@ -105,6 +127,9 @@ elseif (isset($_GET['adminComment'])) {
   adminComment($_GET['commentId']);
 }
  ?>
+</center>
+</div>
+</div>
 <?php
   include_once 'footer.php';
 ?>
